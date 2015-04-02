@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gas:</strong>
+  <%= @counter.gas %>
+</p>
+
+<p>
+  <strong>Cold water:</strong>
+  <%= @counter.cold_water %>
+</p>
+
+<p>
+  <strong>Hot water:</strong>
+  <%= @counter.hot_water %>
+</p>
+
+<p>
+  <strong>Electro:</strong>
+  <%= @counter.electro %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @counter.comment %>
+</p>
+
+<p>
+  <strong>Tariff:</strong>
+  <%= @counter.tariff.id %>
+</p>
+
+<%= link_to 'Edit', edit_counter_path(@counter) %> |
+<%= link_to 'Back', counters_path %>

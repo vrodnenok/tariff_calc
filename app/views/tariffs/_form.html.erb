@@ -1,0 +1,37 @@
+<%= form_for(@tariff) do |f| %>
+  <% if @tariff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tariff.errors.count, "error") %> prohibited this tariff from being saved:</h2>
+
+      <ul>
+      <% @tariff.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :gas %><br>
+    <%= f.text_field :gas %>
+  </div>
+  <div class="field">
+    <%= f.label :cold_water %><br>
+    <%= f.text_field :cold_water %>
+  </div>
+  <div class="field">
+    <%= f.label :hot_water %><br>
+    <%= f.text_field :hot_water %>
+  </div>
+  <div class="field">
+    <%= f.label :electro %><br>
+    <%= f.text_field :electro %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_field :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

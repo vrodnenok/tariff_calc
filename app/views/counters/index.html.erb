@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Counters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Дата</th>
+      <th>Gas</th>
+      <th>Cold water</th>
+      <th>Hot water</th>
+      <th>Electro</th>
+      <th>Comment</th>
+      <th>Tariff</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% iteration = 0 %>
+    <% last_counter = Counter.new() %>
+    <% @counters.each do |counter| %>
+      <tr>
+        <% cur_tariff = Tariff.find(counter.tariff_id) %>
+        <% if iteration > 0 %>
+            <td></td>
+            <td><%= ((counter.gas - last_counter.gas) * cur_tariff.gas).round(2) %></td>
+            <td><%= counter.cold_water * cur_tariff.cold_water %></td>
+            <td><%= counter.hot_water.round(2) %></td>
+            <td><%= counter.electro %></td>
+            <td><%= counter.comment %></td>
+            <td><%= counter.tariff %></td>
+            <td><%= link_to 'Show', counter %></td>
+            <td><%= link_to 'Edit', edit_counter_path(counter) %></td>
+            <td><%= link_to 'Destroy', counter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% last_counter = counter %>
+        <% else %>
+            <% last_counter = counter %>
+            <% iteration += 1 %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Counter', new_counter_path %>

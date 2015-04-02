@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails tariff_calc: development" uuid="32340397-a155-4bcf-bf92-3593cba8416b">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails tariff_calc: test" uuid="ccdb0ac4-520c-4c25-9c3e-ff5e848cfc91">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails tariff_calc: production" uuid="31c9e152-2c71-4f7b-a6d7-eb98c600198e">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

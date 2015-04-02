@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tariffs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gas</th>
+      <th>Cold water</th>
+      <th>Hot water</th>
+      <th>Electro</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tariffs.each do |tariff| %>
+      <tr>
+        <td><%= tariff.gas %></td>
+        <td><%= tariff.cold_water %></td>
+        <td><%= tariff.hot_water %></td>
+        <td><%= tariff.electro %></td>
+        <td><%= tariff.comment %></td>
+        <td><%= link_to 'Show', tariff %></td>
+        <td><%= link_to 'Edit', edit_tariff_path(tariff) %></td>
+        <td><%= link_to 'Destroy', tariff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tariff', new_tariff_path %>

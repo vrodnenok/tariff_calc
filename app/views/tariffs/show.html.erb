@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gas:</strong>
+  <%= @tariff.gas %>
+</p>
+
+<p>
+  <strong>Cold water:</strong>
+  <%= @tariff.cold_water %>
+</p>
+
+<p>
+  <strong>Hot water:</strong>
+  <%= @tariff.hot_water %>
+</p>
+
+<p>
+  <strong>Electro:</strong>
+  <%= @tariff.electro %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @tariff.comment %>
+</p>
+
+<%= link_to 'Edit', edit_tariff_path(@tariff) %> |
+<%= link_to 'Back', tariffs_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gas: 1.5
+  cold_water: 1.5
+  hot_water: 1.5
+  electro: 1.5
+  comment: MyString
+  belongs_to: 
+  tariff_id: 
+
+two:
+  gas: 1.5
+  cold_water: 1.5
+  hot_water: 1.5
+  electro: 1.5
+  comment: MyString
+  belongs_to: 
+  tariff_id: 

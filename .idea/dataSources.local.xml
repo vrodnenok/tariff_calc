@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails tariff_calc: development" uuid="32340397-a155-4bcf-bf92-3593cba8416b">
+      <first-sync>true</first-sync>
+      <user-name>postgres</user-name>
+      <user-password>df92df9bdf9adf98df93df9ddf9ddfcbdfcb</user-password>
+    </data-source>
+    <data-source name="Rails tariff_calc: test" uuid="ccdb0ac4-520c-4c25-9c3e-ff5e848cfc91">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails tariff_calc: production" uuid="31c9e152-2c71-4f7b-a6d7-eb98c600198e">
+      <first-sync>true</first-sync>
+      <user-name>tariff_calc</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffedfebdff8dfe3dfecdfecdff5dfe9dfebdfe6dfe9dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>
