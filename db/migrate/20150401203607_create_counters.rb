@@ -5,7 +5,11 @@ class CreateCounters < ActiveRecord::Migration
       t.float :gas
       t.float :cold_water
       t.float :hot_water
-      t.float :electro
+      t.float :electricity
+      t.float :heat
+      t.float :phone
+      t.float :cleaning
+      t.float :speaker
       t.string :comment
       t.belongs_to :tariff
       t.references :tariff, index: true, foreign_key: true

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Тариф действует с: </strong>
+  <%= @tariff.tariff_started %>
+</p>
+
+<p>
   <strong>Gas:</strong>
   <%= @tariff.gas %>
 </p>
@@ -17,7 +22,7 @@
 
 <p>
   <strong>Electro:</strong>
-  <%= @tariff.electro %>
+  <%= @tariff.electricity %>
 </p>
 
 <p>

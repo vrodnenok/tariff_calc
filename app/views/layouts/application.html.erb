@@ -6,9 +6,18 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+  <body>
+    <div class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <span class="sr-only"></span>
+          <span class="icon-bar"><%= link_to "Counters", counters_path %> | <%= link_to "Tariffs", tariffs_path%>
+          </span>
+        </div>
+      </div>
+    </div>  
+        <div class="container theme-showcase">
+          <%= yield %>
+        </div>
 </body>
 </html>

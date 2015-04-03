@@ -21,11 +21,15 @@ ActiveRecord::Schema.define(version: 20150401203607) do
     t.float    "gas"
     t.float    "cold_water"
     t.float    "hot_water"
-    t.float    "electro"
+    t.float    "electricity"
+    t.float    "heat"
+    t.float    "phone"
+    t.float    "cleaning"
+    t.float    "speaker"
     t.string   "comment"
     t.integer  "tariff_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "counters", ["tariff_id"], name: "index_counters_on_tariff_id", using: :btree
@@ -34,10 +38,12 @@ ActiveRecord::Schema.define(version: 20150401203607) do
     t.float    "gas"
     t.float    "cold_water"
     t.float    "hot_water"
-    t.float    "electro"
+    t.float    "hot_water_sink"
+    t.float    "electricity"
     t.string   "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "tariff_started"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_foreign_key "counters", "tariffs"

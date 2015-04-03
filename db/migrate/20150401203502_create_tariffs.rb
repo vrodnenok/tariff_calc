@@ -4,8 +4,10 @@ class CreateTariffs < ActiveRecord::Migration
       t.float :gas
       t.float :cold_water
       t.float :hot_water
-      t.float :electro
+      t.float :hot_water_sink
+      t.float :electricity
       t.string :comment
+      t.date :tariff_started
 
       t.timestamps null: false
     end

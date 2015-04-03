@@ -1,43 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Counters</h1>
+<h2> Список платежей по месяцам </h2>
 
-<table>
+<table class="table-hover table-condensed table-bordered">
   <thead>
     <tr>
-      <th>Дата</th>
-      <th>Gas</th>
-      <th>Cold water</th>
-      <th>Hot water</th>
-      <th>Electro</th>
-      <th>Comment</th>
-      <th>Tariff</th>
-      <th colspan="3"></th>
+      <th> Дата </th>
+      <th> Газ </th>
+      <th> Хол. вода </th>
+      <th> Гор. вода </th>
+      <th> Отвод гор. воды </th>
+      <th> Электричество </th>
+      <th> Отопление</th>
+      <th> Телефон </th>
+      <th> Спикерфон </th>
+      <th> Очистка </th>
+      <th> Всего </th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% iteration = 0 %>
-    <% last_counter = Counter.new() %>
     <% @counters.each do |counter| %>
-      <tr>
-        <% cur_tariff = Tariff.find(counter.tariff_id) %>
-        <% if iteration > 0 %>
-            <td></td>
-            <td><%= ((counter.gas - last_counter.gas) * cur_tariff.gas).round(2) %></td>
-            <td><%= counter.cold_water * cur_tariff.cold_water %></td>
-            <td><%= counter.hot_water.round(2) %></td>
-            <td><%= counter.electro %></td>
-            <td><%= counter.comment %></td>
-            <td><%= counter.tariff %></td>
-            <td><%= link_to 'Show', counter %></td>
-            <td><%= link_to 'Edit', edit_counter_path(counter) %></td>
-            <td><%= link_to 'Destroy', counter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% last_counter = counter %>
-        <% else %>
-            <% last_counter = counter %>
-            <% iteration += 1 %>
-        <% end %>
+      <tr align="right">
+      <td><%= link_to "#{I18n.t('date.month_names')[counter.date.month]} - #{counter.date.year}", counter %> </td>
+        <% results = counter.get_calculated() %>
+        <td><%= results[:gas] %> </td>
+        <td><%= results[:cold_water] %></td>
+        <td><%= results[:hot_water] %></td>
+        <td><%= results[:hot_water_sink] %></td>
+        <td><%= results[:electricity] %></td>
+        <td><%= counter.heat %></td>
+        <td><%= counter.phone %></td>
+        <td><%= counter.speaker %></td>
+        <td><%= counter.cleaning %></td>
+        <td><%= counter.get_total_sum(results, "a") %></td>
+        <td><%= link_to 'Edit', edit_counter_path(counter) %></td>
+        <td><%= link_to 'Destroy', counter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

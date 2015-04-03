@@ -1,28 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Tariffs</h1>
+<h2> База изменений тарифов по счетчикам </h2>
 
-<table>
+<table class="table-hover table-condensed table-bordered">
   <thead>
     <tr>
-      <th>Gas</th>
-      <th>Cold water</th>
-      <th>Hot water</th>
-      <th>Electro</th>
-      <th>Comment</th>
-      <th colspan="3"></th>
+      <th>Дата</th>
+      <th> Газ </th>
+      <th> Хол. вода </th>
+      <th> Гор. вода. </th>
+      <th> Гор. отвод. </th>
+      <th> Электр. </th>
     </tr>
   </thead>
 
   <tbody>
     <% @tariffs.each do |tariff| %>
-      <tr>
+      <tr align="right">
+        <td><%= link_to "#{tariff.tariff_started}", tariff %></td>
         <td><%= tariff.gas %></td>
         <td><%= tariff.cold_water %></td>
         <td><%= tariff.hot_water %></td>
-        <td><%= tariff.electro %></td>
-        <td><%= tariff.comment %></td>
-        <td><%= link_to 'Show', tariff %></td>
+        <td><%= tariff.hot_water_sink %></td>
+        <td><%= tariff.electricity %></td>
         <td><%= link_to 'Edit', edit_tariff_path(tariff) %></td>
         <td><%= link_to 'Destroy', tariff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -24,7 +24,6 @@ class CountersController < ApplicationController
   def edit
     @last_tariff = Tariff.last()
     @counter.tariff_id = @last_tariff.id
-    @counter.save()
   end
 
   # POST /counters
@@ -75,6 +74,6 @@ class CountersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def counter_params
-      params.require(:counter).permit(:gas, :cold_water, :hot_water, :electro, :comment, :belongs_to, :tariff_id)
+      params.require(:counter).permit(:date, :heat, :phone, :cleaning, :speaker, :gas, :cold_water, :hot_water, :electricity, :comment, :belongs_to, :tariff_id)
     end
 end

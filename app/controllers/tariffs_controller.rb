@@ -19,6 +19,7 @@ class TariffsController < ApplicationController
 
   # GET /tariffs/1/edit
   def edit
+    puts("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" + @tariff.tariff_started.to_s)
   end
 
   # POST /tariffs
@@ -69,6 +70,6 @@ class TariffsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tariff_params
-      params.require(:tariff).permit(:gas, :cold_water, :hot_water, :electro, :comment)
+      params.require(:tariff).permit(:tariff_started, :hot_water_sink, :gas, :cold_water, :hot_water, :electricity, :comment)
     end
 end
