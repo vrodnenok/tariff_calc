@@ -1,5 +1,38 @@
 class CountersController < ApplicationController
   before_action :set_counter, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
+
+  def ajax
+    puts "AJAX is here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    puts params[:year]
+    @counters = Counter.by_year(params[:year])
+    puts @counters
+    table_head = '''
+      <table class="table-hover table-condensed table-bordered">
+        <thead>
+          <tr>
+            <th> Дата </th>
+            <th> Газ </th>
+            <th> Хол. вода </th>
+            <th> Гор. вода </th>
+            <th> Отвод гор. воды </th>
+            <th> Электричество </th>
+            <th> Отопление</th>
+            <th> Телефон </th>
+            <th> Спикерфон </th>
+            <th> Очистка </th>
+            <th> Всего </th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+      <tbody>
+    '''
+    @counters.each do |counter|
+      results = counter.get_calculated
+      table_head += "<tr>"+"<td>"+results[:gas].to_s+"</td></tr></tbody>" 
+    end  
+    render :text => table_head  
+  end
 
   # GET /counters
   # GET /counters.json

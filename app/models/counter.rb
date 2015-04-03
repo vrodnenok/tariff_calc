@@ -14,7 +14,9 @@ class Counter < ActiveRecord::Base
   validates :cleaning, presence: true, numericality: true
   validates :speaker, presence: true, numericality: true
 
-  def get_total_sum(vals, some_text)
+  scope :by_year, lambda { |year| where('extract(year from date) = ?', year) }
+
+  def get_total_sum(**vals)
     sum = 0.0
     vals.each do |k,v|
       sum += v

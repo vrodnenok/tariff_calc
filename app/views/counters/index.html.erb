@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
+<%= javascript_include_tag params[:controller] %>
+
+<%= select_year(Date.today, start_year: 1992, end_year: 2025) %>
+<input class="date_year" />
 
 <h2> Список платежей по месяцам </h2>
 
-<table class="table-hover table-condensed table-bordered">
+  <table class="table-hover table-condensed table-bordered">
   <thead>
     <tr>
       <th> Дата </th>
@@ -34,7 +38,7 @@
         <td><%= counter.phone %></td>
         <td><%= counter.speaker %></td>
         <td><%= counter.cleaning %></td>
-        <td><%= counter.get_total_sum(results, "a") %></td>
+        <td><%= counter.get_total_sum(results) %></td>
         <td><%= link_to 'Edit', edit_counter_path(counter) %></td>
         <td><%= link_to 'Destroy', counter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -45,3 +49,4 @@
 <br>
 
 <%= link_to 'New Counter', new_counter_path %>
+<div class="test_div">+++++++++++++++++</div>
