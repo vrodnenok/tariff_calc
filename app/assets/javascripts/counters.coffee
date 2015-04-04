@@ -1,8 +1,9 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+
 $ ->
-  console.log("howdy")
+#  console.log("howdy")
   $('.test_div').html("<p>#{$('#date_year').val()}</p>")
   $('#date_year').change ->
     get_table()
@@ -13,9 +14,11 @@ get_table = () ->
   $.ajax({
     url: '/ajax',
     type: "POST",
+    dataType: "json" 
     data: {year:"#{$('#date_year').val()}"},
     success: render_table
   })
 
 render_table = (data) ->
-  $('.test_div').append(data)
+  console.log(data)
+  $('.test_div').html(data[0].gas)

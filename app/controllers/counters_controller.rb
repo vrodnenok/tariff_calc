@@ -31,7 +31,8 @@ class CountersController < ApplicationController
       results = counter.get_calculated
       table_head += "<tr>"+"<td>"+results[:gas].to_s+"</td></tr></tbody>" 
     end  
-    render :text => table_head  
+    puts @counters.as_json
+    render :json => @counters  
   end
 
   # GET /counters
