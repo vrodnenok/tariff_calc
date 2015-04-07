@@ -7,7 +7,7 @@ class CountersController < ApplicationController
     puts params[:year]
     @counters = Counter.by_year(params[:year])
     puts @counters
-    table_head = '''
+    table = '''
       <table class="table-hover table-condensed table-bordered">
         <thead>
           <tr>
@@ -26,12 +26,24 @@ class CountersController < ApplicationController
           </tr>
         </thead>
       <tbody>
-    '''
+    ''' 
     @counters.each do |counter|
+      table += "<tr align = 'right' >"
       results = counter.get_calculated
-      table_head += "<tr>"+"<td>"+results[:gas].to_s+"</td></tr></tbody>" 
+      table += "<td><a href='/counters/#{counter.id}'>
+          #{I18n.t('date.month_names')[counter.date.month]} 
+          #{counter.date.year}</a> </td>"
+      table += "<td>"+results[:gas].to_s+"</td>"
+      table += "<td>"+results[:cold_water].to_s+"</td>"
+      table += "<td>"+results[:hot_water].to_s+"</td>"
+      table += "<td>"+results[:hot_water_sink].to_s+"</td>"
+      table += "<td>"+results[:electricity].to_s+"</td>"
+      table += "</tr>" 
+
     end  
-    puts @counters.as_json
+    table += "</tbody>"
+    puts @counters.as_json 
+    puts "mmmmmmmmmmmmmmmmmmmmmmmmmmm"
     render :json => @counters  
   end
 
