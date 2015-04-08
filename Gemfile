@@ -4,6 +4,7 @@ gem 'bootstrap_form'
 gem 'devise'
 gem 'angularjs-rails'
 gem 'ng-rails-csrf'
+gem 'rails-api'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

@@ -15,4 +15,12 @@
 //= require angular
 //= require angular-resource
 //= require_self
+//= require routes
 //= require ng-rails-csrf
+//= require angular-route
+//= require_tree ./controllers
+//= require_tree ./models
+
+App = angular.module('App', ['ngRoute', 'ngResource', 'ng-rails-csrf'])
+
+//= require_tree .

@@ -6,6 +6,18 @@ Rails.application.routes.draw do
 
   root 'counters#index'
 
+  namespace :api do
+    namespace :v1 do
+      resources :counters
+      resources :tariffs
+    end
+  end
+
+  #match "api" => proc { [404, {}, ['Invalid API endpoint']] }, :via => [:get]
+  #match "api/*path" => proc { [404, {}, ['Invalid API endpoint']] }, :via => [:get]
+
+  #match "/*path" => redirect("/?goto=%{path}"), :via => [:get]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
